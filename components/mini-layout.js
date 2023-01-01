@@ -28,6 +28,8 @@ export function MiniLayout({ children }) {
           max-width: 540px;
           margin: auto;
           padding-top: 20px;
+          padding-left: 16px;
+          padding-right: 16px;
         }
 
         .nav {
