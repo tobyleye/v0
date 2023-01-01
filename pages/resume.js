@@ -1,4 +1,7 @@
+/* eslint-disable react/jsx-key */
 import Head from "next/head";
+import React from "react";
+
 const workExperiences = [
   {
     company: "SOAR, Fate Foundation",
@@ -10,7 +13,7 @@ const workExperiences = [
         Single handedly led the frontend development of{" "}
         <a href="https://soar.fatefoundation.org/">SOAR</a>, a fully
         customizable, responsive application intended to bring entrepreneurs a
-        step closer to starting, growing and scaling their business'
+        step closer to starting, growing and scaling their business
       </p>,
       "Created an in-platform robust form builder which enables admins set-up and configure application forms for programs. With this in place we were able to boycott third-party solutions like google forms hence saving cost",
       "Integrated payment with paystack allowing the  foundation to receive payments for their paid programmes",
@@ -42,7 +45,7 @@ const workExperiences = [
     period: "July 2021 - March 2022",
 
     highlights: [
-      // 'improved discoverability of company x services.'
+      // 'work i did help improved discoverability of services offered by the company.'
       <p>
         Led the frontend development of{" "}
         <a href="https://estateintel.com/app/projects">Projects</a> and several
@@ -104,12 +107,16 @@ const projects = [
   },
 ];
 
+
+ResumePage.Layout = React.Fragment
+
 export default function ResumePage() {
   return (
     <div className="resume">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@200;400;500;600;700;800&display=swap"
           rel="stylesheet"
@@ -153,9 +160,9 @@ export default function ResumePage() {
         <section id="work-experience">
           <h2>Work Experience</h2>
           <div className="work-list">
-            {workExperiences.map((e) => {
+            {workExperiences.map((e, workIndex) => {
               return (
-                <div className="work">
+                <div className="work" key={`work-${workIndex}`}>
                   <div className="company row">
                     <p className="bold">{e.company}</p>
                     <p>{e.location}</p>
@@ -165,8 +172,8 @@ export default function ResumePage() {
                     <p className="italics">{e.period}</p>
                   </div>
                   <ul className="highlights">
-                    {e.highlights.map((h) => (
-                      <li>{h}</li>
+                    {e.highlights.map((h, hIndex) => (
+                      <li key={`work-${workIndex}-highlight-${hIndex}`}>{h}</li>
                     ))}
                   </ul>
                 </div>

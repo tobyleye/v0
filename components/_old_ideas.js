@@ -20,10 +20,12 @@ function PreviousHome() {
       </h3>
 
       <div hidden={showRest === false} className="rest">
-       I'm a seasoned Javascript engineer, skilled at
-        both frontend & backend. I use an array of tools to
-        get my work done such as typescript, react, nextjs, nodejs and less
-        frequently, python.
+        {`
+        I'm a seasoned Javascript engineer, skilled at
+          both frontend & backend. I use an array of tools to
+          get my work done such as typescript, react, nextjs, nodejs and less
+          frequently, python.
+        `}
       </div>
 
       <style jsx>{`

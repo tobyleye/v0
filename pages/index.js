@@ -5,8 +5,8 @@ export default function Home() {
     <section>
       <header className="intro">
         <h1>
-          Hi my name is Tobi Oyeleye, I'm a software engineer focusing on
-          building performant & delightful web experiences
+          {`Hi my name is Tobi Oyeleye, I'm a software engineer focusing on
+          building performant & delightful web experiences`}
         </h1>
       </header>
 

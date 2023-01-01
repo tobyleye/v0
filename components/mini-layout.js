@@ -1,15 +1,18 @@
 import { NavLink } from "./nav";
+import { PageTransition } from "./page-transition";
 
 export function MiniLayout({ children }) {
   return (
     <div className="layout">
       <div className="container">
         <nav className="nav">
-          <NavLink href="/">/tobi <span title="in progress">🚧</span></NavLink>
+          <NavLink href="/">
+            /tobi <span title="in progress">🚧</span>
+          </NavLink>
           <NavLink href="/work">work</NavLink>
           <NavLink href="/about">personal</NavLink>
         </nav>
-        {children}
+        <PageTransition>{children}</PageTransition>
       </div>
 
       <style jsx>{`
