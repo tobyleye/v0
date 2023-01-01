@@ -12,15 +12,43 @@ a {
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+
+.page-transition-container {
+  position: relative;
 }
+
+.page-revealer {
+  position: absolute;
+  background: #212121;
+}
+
+
+.page-enter .page-revealer {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.page-enter-active  .page-revealer{
+  top: 100%;
+  transition: all 450ms;
+}
+
+.page-exit .page-revealer{
+  top: 100%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.page-exit-active .page-revealer {
+  top: 0%;
+  transition: all 450ms;
+}
+
