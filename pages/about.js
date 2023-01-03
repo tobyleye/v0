@@ -1,7 +1,7 @@
 export default function AboutPage() {
   return (
     <div className="about">
-      <p>Life of the party, aspiring eccentric and other things.</p>
+      <p>Life of the party, part-time eccentric and other things.</p>
       <p>
         I like maths, reading, travelling, working out, pretty things, and
         recently teaching.
