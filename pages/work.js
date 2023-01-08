@@ -18,20 +18,22 @@ export default function Work() {
 
 function Project({ name, desc }) {
   return (
-    <div className="project">
-      <h3>{name}</h3>
-      <p>{desc}</p>
+    <Link href={`/projects/project-name`}>
+      <div className="project">
+        <h3>{name}</h3>
+        <p>{desc}</p>
 
-      <style jsx>{`
-        .project {
-          border: 1px solid gray;
-          padding: 20px;
-          padding-top: 80px;
-          border-radius: 5px;
-          background: white;
-          color: black;
-        }
-      `}</style>
-    </div>
+        <style jsx>{`
+          .project {
+            border: 1px solid gray;
+            padding: 20px;
+            padding-top: 80px;
+            border-radius: 5px;
+            background: white;
+            color: black;
+          }
+        `}</style>
+      </div>
+    </Link>
   );
 }

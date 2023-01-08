@@ -17,6 +17,11 @@ a {
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 
 .page-transition-container {
   position: relative;
@@ -52,3 +57,7 @@ a {
   transition: all 450ms;
 }
 
+
+img {
+  max-width: 100%;
+}

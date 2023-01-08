@@ -9,7 +9,7 @@ export function MiniLayout({ children }) {
           <NavLink href="/">
             /tobi <span title="in progress">🚧</span>
           </NavLink>
-          <NavLink href="/work">work</NavLink>
+          <NavLink href="/projects">work</NavLink>
           <NavLink href="/about">personal</NavLink>
         </nav>
         <PageTransition>{children}</PageTransition>
@@ -25,7 +25,7 @@ export function MiniLayout({ children }) {
         }
 
         .container {
-          max-width: 540px;
+          max-width: 840px;
           margin: auto;
           padding-top: 20px;
           padding-left: 16px;
