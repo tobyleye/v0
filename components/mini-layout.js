@@ -1,27 +1,21 @@
-import { NavLink } from "./nav";
+import { Nav } from "./nav";
 import { PageTransition } from "./page-transition";
 
 export function MiniLayout({ children }) {
   return (
     <div className="layout">
       <div className="container">
-        <nav className="nav">
-          <NavLink href="/">
-            /tobi <span title="in progress">🚧</span>
-          </NavLink>
-          <NavLink href="/projects">work</NavLink>
-          <NavLink href="/about">personal</NavLink>
-        </nav>
+        <Nav />
         <PageTransition>{children}</PageTransition>
       </div>
 
       <style jsx>{`
         .layout {
           min-height: 100vh;
-          background: #212121;
+          background: rgb(21,21,21);
           color: #f4f4f4;
           line-height: 1.5;
-          padding: 18;
+          padding: 18px;
         }
 
         .container {
@@ -32,11 +26,6 @@ export function MiniLayout({ children }) {
           padding-right: 16px;
         }
 
-        .nav {
-          display: flex;
-          margin-bottom: 50px;
-          gap: 20px;
-        }
       `}</style>
     </div>
   );

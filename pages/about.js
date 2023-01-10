@@ -22,6 +22,7 @@ export default function AboutPage() {
       <style jsx>{`
         .about p {
           margin-bottom: 15px;
+          font-size: 20px;
         }
 
         .about a {

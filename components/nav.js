@@ -2,23 +2,45 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 
-export function NavLink({ href, children }) {
+export function Nav() {
+  return (
+    <nav className="nav">
+      <NavLink href="/">
+        {`<`}tobi{`/>`} <span title="in progress">🚧</span>
+      </NavLink>
+      <NavLink href="/projects">work</NavLink>
+      <NavLink href="/about">personal</NavLink>
+      <style jsx>{`
+          .nav {
+            display: flex;
+            margin-bottom: 50px;
+            gap: 20px;
+          }
+      `}</style>
+    </nav>
+  )
+}
+
+function NavLink({ href, children }) {
     const router = useRouter();
-    // direct comparison will be just fine since there are no nested paths
-    let active = router.asPath === href;
+    const path = router.asPath
+    const active = href === '/'  ? href === path : path.includes(href)
+
     return (
       <div>
-        <Link href={href} className={`link ${active ? "active" : ""}`}>
+        <Link href={href} className={`nav-link ${active ? "active" : ""}`}>
           {children}
         </Link>
   
         <style jsx global>{`
-          .link {
+          .nav-link {
             position: relative;
             transition: 0.24s ease;
+            font-size: 18px;
+            text-tra
           }
   
-          .link::before {
+          .nav-link::before {
             content: "";
             height: 1px;
             position: absolute;
@@ -28,11 +50,11 @@ export function NavLink({ href, children }) {
             width: 0;
             transition: 0.24s ease;
           }
-          .link.active {
+          .nav-link.active {
             color: yellow;
           }
   
-          .link.active::before {
+          .nav-link.active::before {
             width: 100%;
           }
         `}</style>
@@ -40,3 +62,4 @@ export function NavLink({ href, children }) {
     );
   }
   
+

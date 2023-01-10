@@ -32,9 +32,8 @@ const workExperiences = [
         <a href="https://myeasycoop.com/">Easycoop</a>. A cooperative solution
         used by over 2 million users.
       </p>,
-      "Rebuilt & Improved existing notification system keeping users up to date at all times.",
-      "led the frontend development of a housing loan feature which gave policemen access to housing loans",
-      "Migrate legacy react codes",
+      "Rebuilt & Improved existing notification system keeping users up to date at all times ensuring a smooth user experience.",
+      "built and led product that gave over 500,000 policemen access to housing loans",
     ],
   },
 
@@ -59,21 +58,22 @@ const workExperiences = [
         client-side to server side. Technologies used where Vuejs & NuxtJs`,
       `Built internal apis that interfaced with Salesforce and was used to
         collect potential clients requests`,
+      `connected forms to salesforce which was used to collect clients request.`,
     ],
   },
 
-  {
-    company: "Azeelo Digital International",
-    location: "London, UK (Remote)",
-    role: "Frontend developer",
-    period: "March 2021 - July 2021",
+  // {
+  //   company: "Azeelo Digital International",
+  //   location: "London, UK (Remote)",
+  //   role: "Frontend developer",
+  //   period: "March 2021 - July 2021",
 
-    highlights: [
-      `Built and shipped the first mvp of a cloud-based sizing tool`,
-      `I handled demo meetings with the client.`,
-      `Led a team of two frontend engineers and oversaw deployment of new features`,
-    ],
-  },
+  //   highlights: [
+  //     `Built and shipped the first mvp of a cloud-based sizing tool`,
+  //     `I handled demo meetings with the client.`,
+  //     `Led a team of two frontend engineers and oversaw deployment of new features`,
+  //   ],
+  // },
 
   {
     company: "Xerde Limited",
@@ -107,8 +107,7 @@ const projects = [
   },
 ];
 
-
-ResumePage.Layout = React.Fragment
+ResumePage.Layout = React.Fragment;
 
 export default function ResumePage() {
   return (
