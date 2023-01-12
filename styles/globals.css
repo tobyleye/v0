@@ -27,13 +27,13 @@ ul {
   position: relative;
 }
 
-.page-revealer {
+/* .page-revealer {
   position: absolute;
-  /* background: #212121; */
-}
+  background: #212121;
+} */
 
 
-.page-enter .page-revealer {
+/* .page-enter .page-revealer {
   top: 0;
   left: 0;
   bottom: 0;
@@ -55,8 +55,25 @@ ul {
 .page-exit-active .page-revealer {
   top: 0%;
   transition: all 450ms;
+} */
+
+.page-enter  {
+ opacity: 0;
 }
 
+.page-enter-active  {
+  opacity: 1;
+  transition: all 250ms;
+}
+
+.page-exit {
+ opacity: 1;
+}
+
+.page-exit-active  {
+  opacity: 0;
+  transition: all 250ms;
+}
 
 img {
   max-width: 100%;

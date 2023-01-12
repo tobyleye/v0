@@ -6,7 +6,7 @@ export function Nav() {
   return (
     <nav className="nav">
       <NavLink href="/">
-        {`<`}tobi{`/>`} <span title="in progress">🚧</span>
+        {`<`}tobi{`/>`}
       </NavLink>
       <NavLink href="/projects">work</NavLink>
       <NavLink href="/about">personal</NavLink>

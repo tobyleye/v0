@@ -1,13 +1,24 @@
+import Link from "next/link";
 import { client, groq } from "../../lib/client";
+import { BackArrow } from "../../components/back-arrow-icon";
+import { ProjectDescription } from "../../components/project-description";
+import Image from "next/image";
 
 export async function getStaticProps({ params }) {
   const project = await client
-    .fetch(groq`*[_type == "project" && slug.current == $projectSlug]{
+    .fetch(
+      groq`*[_type == "project" && slug.current == $projectSlug]{
       ...,
-      "gallery": gallery[].asset->url,
-    }`, {
-      projectSlug: params.slug,
-    })
+      "gallery": gallery[].asset->{
+        "dimensions": metadata.dimensions,
+        "placeholder": metadata.lqip,
+        "url": url
+      }
+    }`,
+      {
+        projectSlug: params.slug,
+      }
+    )
     .then((result) => result[0] ?? null);
 
   return {
@@ -36,31 +47,63 @@ export async function getStaticPaths() {
 
 export default function ProjectDetails({ project }) {
   return (
-    <div>
+    <div className="" style={{ position: "relative" }}>
       {project ? (
         <div>
-
           <div className="project-details">
-            <h1 className="project-name">{project.name}</h1>
-            <p className="project-description">{project.description}</p>
-            <div className="project-tags">
-              {project.tools.filter(tool => tool !== '').map((tool, index) => (
-                <div className="project-tag" key={index}>{tool}</div>
-              ))}
+            <div style={{ marginBottom: 10 }}>
+              <Link href="/projects">
+                <span className="back-link">
+                  <BackArrow />
+                  Back
+                </span>
+              </Link>
             </div>
-            <a className="project-link" href={project.link} target="_blank" rel="noreferrer">
+
+            <h1 className="project-name">{project.name}</h1>
+            <div className="project-description">
+              <ProjectDescription description={project.description} />
+            </div>
+            <div className="project-tags">
+              {project.tools
+                .filter((tool) => tool !== "")
+                .map((tool, index) => (
+                  <div className="project-tag" key={index}>
+                    {tool}
+                  </div>
+                ))}
+            </div>
+            <a
+              className="project-link"
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+            >
               Visit site
             </a>
           </div>
-            
 
           <div className="project-gallery">
-            {project.gallery?.map((img, idx) => (
-              <div key={idx}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={img} alt={`gallery ${idx}`} />
-              </div>
-            ))}
+            {project.gallery?.map((img, idx) => {
+              return (
+                <div
+                  className="project-media"
+                  key={idx}
+                  style={{
+                    aspectRatio: img.dimensions.aspectRatio,
+                  }}
+                >
+                  <Image
+                    src={img.url}
+                    alt={`gallery ${idx}`}
+                    fill
+                    style={{ objectFit: "cover", borderRadius: 8 }}
+                    placeholder="blur"
+                    blurDataURL={img.placeholder}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       ) : (
@@ -71,12 +114,21 @@ export default function ProjectDetails({ project }) {
       )}
 
       <style jsx>{`
-      .project-name {
-        font-size: 40px;
-        margin-bottom: 10px;
-      }
+        .project-name {
+          font-size: 40px;
+          margin-bottom: 10px;
+        }
+
+        .back-link {
+          margin-bottom: 18px;
+          padding-top: 5px;
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+        }
+
         .project-description {
-          margin-bottom: 8px;
+          margin-bottom: 16px;
         }
 
         .project-tags {
@@ -93,7 +145,8 @@ export default function ProjectDetails({ project }) {
           padding-right: 10px;
           background: yellow;
           text-transform: capitalize;
-          color: rgb(21,21,21);
+          color: rgb(21, 21, 21);
+          border-radius: 3px;
         }
         .project-link {
           display: inline-block;
@@ -101,7 +154,7 @@ export default function ProjectDetails({ project }) {
           color: #222;
           padding: 6px 12px;
           border-radius: 5px;
-          transition: .2s ease;
+          transition: 0.2s ease;
         }
         .project-link:hover {
           transform: scale(1.02);
@@ -111,12 +164,22 @@ export default function ProjectDetails({ project }) {
           position: sticky;
           top: 0;
         }
+
         .project-gallery {
           margin-top: 55px;
           position: relative;
           z-index: 5;
           display: grid;
           gap: 25px;
+        }
+
+        .project-media {
+          display: flex;
+          justify-content: center;
+          border-radius: 5;
+          position: relative;
+          border-radius: 5;
+          overflow: hidden;
         }
       `}</style>
     </div>

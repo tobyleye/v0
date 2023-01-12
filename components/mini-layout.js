@@ -19,7 +19,7 @@ export function MiniLayout({ children }) {
         }
 
         .container {
-          max-width: 840px;
+          max-width: 740px;
           margin: auto;
           padding-top: 20px;
           padding-left: 16px;
