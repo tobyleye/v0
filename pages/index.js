@@ -1,7 +1,25 @@
-import avatar from "../assets/avatar.jpg";
 import Image from "next/image";
+import { client, groq } from "../lib/client";
 
-export default function Home() {
+export async function getStaticProps() {
+  const data = await client
+    .fetch(
+      groq`*[_type == "homePage"]{
+    "avatar": {
+        "url": avatar.asset->url,
+        "placeholder": avatar.asset->metadata.lqip,
+    }
+  }`
+    )
+    .then((results) => results[0]);
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+export default function Home({ data }) {
   return (
     <section className="index">
       <header className="intro">
@@ -20,9 +38,12 @@ export default function Home() {
             <div className="avatar-frame">
               <div className="avatar">
                 <Image
-                  src={avatar}
-                  alt="avatar"
                   fill
+                  src={data.avatar.url}
+                  alt="avatar"
+                  priority={true}
+                  placeholder="blur"
+                  blurDataURL={data.avatar.placeholder}
                   style={{ objectFit: "cover" }}
                 />
               </div>
@@ -30,14 +51,9 @@ export default function Home() {
           </div>
         </div>
       </header>
-      {/* <div className="body">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        </p>
-        <Link href="/work">see works</Link>
-      </div> */}
+      <div className="body">
+        <p></p>
+      </div>
 
       <style jsx>{`
         .intro-row {
@@ -90,6 +106,16 @@ export default function Home() {
           animation: roll_in_avatar 0.8s ease;
         }
 
+        .body {
+          animation: body 1.4s ease;
+          animation-delay: 0.68s;
+          animation-fill-mode: both;
+          margin-top: 50px;
+          font-size: 20px;
+          color: #ccc;
+          line-height: 1.6;
+        }
+
         @media (min-width: 600px) {
           .intro-row {
             flex-direction: row;
@@ -136,13 +162,6 @@ export default function Home() {
             transform: scale(1);
             opacity: 1;
           }
-        }
-
-        .body {
-          animation: body 1.4s ease;
-          animation-delay: 0.68s;
-          animation-fill-mode: both;
-          font-size: 18px;
         }
 
         @keyframes body {
