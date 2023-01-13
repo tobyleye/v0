@@ -68,7 +68,7 @@ export default function ProjectDetails({ project }) {
               {project.tools
                 .filter((tool) => tool !== "")
                 .map((tool, index) => (
-                  <div className="project-tag" key={index}>
+                  <div className="project-tag" key={`tag-${index}`}>
                     {tool}
                   </div>
                 ))}
@@ -85,12 +85,15 @@ export default function ProjectDetails({ project }) {
 
           <div className="project-gallery">
             {project.gallery?.map((img, idx) => {
+              if (!img) {
+                return null
+              }
               return (
                 <div
                   className="project-media"
-                  key={idx}
+                  key={`media-${idx}`}
                   style={{
-                    aspectRatio: img?.dimensions?.aspectRatio,
+                    aspectRatio: img.dimensions.aspectRatio,
                   }}
                 >
                   <Image
