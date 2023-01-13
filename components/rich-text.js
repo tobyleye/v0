@@ -15,21 +15,22 @@ const portableTextComponents = {
   },
 };
 
-export function ProjectDescription({ description }) {
+export function RichText({ content }) {
   return (
-    <div className="description">
-      {typeof description === "string" ? (
-        <p>{description}</p>
+    <div className="rich-text">
+      {typeof content === "string" ? (
+        <p>{content}</p>
       ) : (
-        <PortableText value={description} components={portableTextComponents} />
+        <PortableText value={content} components={portableTextComponents} />
       )}
 
       <style jsx global>{`
-        .description {
-        }
-        .description a {
+        .rich-text a {
           color: yellow;
-          text-decoration: underline;
+        }
+
+        .rich-text p:not(:last-child) {
+          margin-bottom: 10px;
         }
       `}</style>
     </div>

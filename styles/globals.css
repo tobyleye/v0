@@ -63,7 +63,7 @@ ul {
 
 .page-enter-active  {
   opacity: 1;
-  transition: all 250ms;
+  transition: all 200ms;
 }
 
 .page-exit {
@@ -72,7 +72,7 @@ ul {
 
 .page-exit-active  {
   opacity: 0;
-  transition: all 250ms;
+  transition: all 200ms;
 }
 
 img {

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { client, groq } from "../../lib/client";
 import { BackArrow } from "../../components/back-arrow-icon";
-import { ProjectDescription } from "../../components/project-description";
+import {  RichText } from "../../components/rich-text";
 import Image from "next/image";
 
 export async function getStaticProps({ params }) {
@@ -62,7 +62,7 @@ export default function ProjectDetails({ project }) {
 
             <h1 className="project-name">{project.name}</h1>
             <div className="project-description">
-              <ProjectDescription description={project.description} />
+              <RichText content={project.description} />
             </div>
             <div className="project-tags">
               {project.tools
@@ -90,7 +90,7 @@ export default function ProjectDetails({ project }) {
                   className="project-media"
                   key={idx}
                   style={{
-                    aspectRatio: img.dimensions.aspectRatio,
+                    aspectRatio: img?.dimensions?.aspectRatio,
                   }}
                 >
                   <Image

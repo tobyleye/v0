@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ProjectDescription } from "./project-description";
+import { RichText } from "./rich-text";
 
 export default function ProjectCard({ project }) {
   const { cover } = project;
@@ -21,20 +21,21 @@ export default function ProjectCard({ project }) {
                   ${cover.palette.dominant.background}
               )
             `,
-            marginBottom: 10,
-            borderRadius: 9,
+          
           }}
         ></div>
         <div>
           <h3>{project.name}</h3>
           <div className="desc">
-            <ProjectDescription description={project.description} />
+            <RichText content={project.description} />
           </div>
         </div>
 
         <style jsx>{`
           .project-card .cover {
             height: 200px;
+            margin-bottom: 10px;
+            border-radius: 9px
           }
           .project-card h3 {
             font-size: 22px;
