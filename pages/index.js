@@ -11,7 +11,7 @@ export default function Home() {
               <div>Hi Deer,</div>
               <div>
                 {`My name is Tobi Oyeleye, I'm a software engineer focusing on
-              building performant, modern & delightful web experiences
+              building performant, modern & delightful web experiences.
               `}
               </div>
             </h1>
