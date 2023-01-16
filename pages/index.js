@@ -1,5 +1,8 @@
 import Image from "next/image";
 import { client, groq } from "../lib/client";
+import Link from "next/link";
+import { Contact } from "../components/contact";
+import { useState } from "react";
 
 export async function getStaticProps() {
   const data = await client
@@ -20,19 +23,32 @@ export async function getStaticProps() {
 }
 
 export default function Home({ data }) {
+  const [showContact, setShowContact] = useState(false);
   return (
     <section className="index">
+      <Contact open={showContact} onClose={() => setShowContact(false)} />
       <header className="intro">
         <div className="intro-row">
           <div className="intro-left">
             <h1 className="intro-text">
-              <div>Hi Deer,</div>
+              <div>Hey There,</div>
               <div>
                 {`My name is Tobi Oyeleye, I'm a software engineer focusing on
               building performant, modern & delightful web experiences.
               `}
               </div>
             </h1>
+            <div className="btns">
+              <Link href="/projects">
+                <button className="project-btn">See projects</button>
+              </Link>
+              <button
+                className="resume-btn"
+                onClick={() => setShowContact(true)}
+              >
+                Contact me
+              </button>
+            </div>
           </div>
           <div>
             <div className="avatar-frame">
@@ -51,14 +67,15 @@ export default function Home({ data }) {
           </div>
         </div>
       </header>
-      <div className="body">
-        <p></p>
-      </div>
+      <div className="body"></div>
 
       <style jsx>{`
-        .intro-row {
+        .intro {
           border-bottom: 1px solid #f4f4f4;
           padding-bottom: 28px;
+        }
+
+        .intro-row {
           margin-bottom: 5px;
           display: flex;
           flex-direction: column-reverse;
@@ -73,14 +90,47 @@ export default function Home({ data }) {
           width: 30%;
         }
 
+        .btns {
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: 28px;
+          column-gap: 14px;
+          row-gap: 10px;
+        }
+
+        .btns button {
+          border: none;
+          background: trasparent;
+          cursor: pointer;
+          font-size: 18px;
+          padding: 0px 20px;
+          height: 46px;
+          border-radius: 5px;
+        }
+
+        .btns .resume-btn {
+          background: none;
+          color: yellow;
+          border: 2px solid white;
+        }
+
+        .btns .resume-btn:hover {
+        }
+
+        .btns .project-btn {
+          background: white;
+          color: var(--black);
+          text-transform: capitalize;
+        }
+
         .intro-text {
           font-size: 30px;
           animation: come_in 0.95s ease;
         }
 
         .intro-text div:first-child {
-          font-size: 44px;
-          margin-bottom: 10px;
+          font-size: 36px;
+          margin-bottom: 8px;
         }
 
         .intro-text div:last-child {
@@ -107,13 +157,15 @@ export default function Home({ data }) {
         }
 
         .body {
-          animation: body 1.4s ease;
-          animation-delay: 0.68s;
-          animation-fill-mode: both;
+          animation: body 1.2s ease 0.6s both;
           margin-top: 50px;
-          font-size: 20px;
           color: #ccc;
           line-height: 1.6;
+          font-size: 18px;
+        }
+
+        .body p {
+          margin-bottom: 20px;
         }
 
         @media (min-width: 600px) {

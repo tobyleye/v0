@@ -15,15 +15,15 @@ export function MiniLayout({ children }) {
           background: rgb(21,21,21);
           color: #f4f4f4;
           line-height: 1.5;
-          padding: 18px;
         }
 
         .container {
           max-width: 740px;
           margin: auto;
           padding-top: 20px;
-          padding-left: 16px;
-          padding-right: 16px;
+          padding-left: 24px;
+          padding-right: 24px;
+          padding-bottom: 20px;
         }
 
       `}</style>

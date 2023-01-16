@@ -17,6 +17,10 @@ a {
   box-sizing: border-box;
 }
 
+:root {
+  --black: #212121;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -26,36 +30,6 @@ ul {
 .page-transition-container {
   position: relative;
 }
-
-/* .page-revealer {
-  position: absolute;
-  background: #212121;
-} */
-
-
-/* .page-enter .page-revealer {
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
-.page-enter-active  .page-revealer{
-  top: 100%;
-  transition: all 450ms;
-}
-
-.page-exit .page-revealer{
-  top: 100%;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
-.page-exit-active .page-revealer {
-  top: 0%;
-  transition: all 450ms;
-} */
 
 .page-enter  {
  opacity: 0;
@@ -77,4 +51,8 @@ ul {
 
 img {
   max-width: 100%;
+}
+
+.link {
+  color: yellow;
 }

@@ -1,10 +1,14 @@
 export default function AboutPage() {
   return (
     <div className="about">
-      <p>Life of the party, part-time eccentric and other things.</p>
+      <p>A simple guy, and a real crowd pleaser.</p>
       <p>
-        I like maths, reading, travelling, working out, pretty things, and
-        recently teaching.
+        I love travelling, exploring new things and places, working out, maths
+        and recently teaching.
+      </p>
+      <p>
+        I listen to a shit ton of music. Last year alone i listened to over 95k
+        minutes of music on youtube music. A feat none of my friends could reach.
       </p>
       <p>
         {`
