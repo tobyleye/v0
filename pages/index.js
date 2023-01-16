@@ -2,7 +2,7 @@ import Image from "next/image";
 import { client, groq } from "../lib/client";
 import Link from "next/link";
 import { Contact } from "../components/contact";
-import {  useState } from "react";
+import { useState } from "react";
 
 export async function getStaticProps() {
   const data = await client
@@ -27,7 +27,6 @@ export default function Home({ data }) {
 
   return (
     <section className="index">
-      <Contact open={showContact} onClose={() => setShowContact(false)} />
       <header className="intro">
         <div className="intro-row">
           <div className="intro-left">
@@ -66,6 +65,7 @@ export default function Home({ data }) {
         </div>
       </header>
       <div className="body"></div>
+      <Contact open={showContact} onClose={() => setShowContact(false)} />
 
       <style jsx>{`
         .intro {
