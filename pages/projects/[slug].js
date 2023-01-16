@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { client, groq } from "../../lib/client";
 import { BackArrow } from "../../components/back-arrow-icon";
-import {  RichText } from "../../components/rich-text";
+import { RichText } from "../../components/rich-text";
 import Image from "next/image";
 
 export async function getStaticProps({ params }) {
@@ -12,6 +12,7 @@ export async function getStaticProps({ params }) {
       "gallery": gallery[].asset->{
         "dimensions": metadata.dimensions,
         "placeholder": metadata.lqip,
+        "palette":  metadata.palette,
         "url": url
       }
     }`,
@@ -86,24 +87,31 @@ export default function ProjectDetails({ project }) {
           <div className="project-gallery">
             {project.gallery?.map((img, idx) => {
               if (!img) {
-                return null
+                return null;
               }
               return (
-                <div
-                  className="project-media"
-                  key={`media-${idx}`}
-                  style={{
-                    aspectRatio: img.dimensions.aspectRatio,
-                  }}
-                >
-                  <Image
-                    src={img.url}
-                    alt={`gallery ${idx}`}
-                    fill
-                    style={{ objectFit: "cover", borderRadius: 8 }}
-                    placeholder="blur"
-                    blurDataURL={img.placeholder}
+                <div key={`media-${idx}`} className="project-media-wrapper">
+                  <div
+                    className="project-media-bg"
+                    style={{
+                      background: img.palette.muted.background,
+                    }}
                   />
+                  <div
+                    className="project-media"
+                    style={{
+                      aspectRatio: img.dimensions.aspectRatio,
+                    }}
+                  >
+                    <Image
+                      src={img.url}
+                      alt={`gallery ${idx}`}
+                      fill
+                      style={{ objectFit: "cover", borderRadius: 8 }}
+                      placeholder="blur"
+                      blurDataURL={img.placeholder}
+                    />
+                  </div>
                 </div>
               );
             })}
@@ -176,13 +184,41 @@ export default function ProjectDetails({ project }) {
           gap: 25px;
         }
 
+        .project-media-wrapper {
+          border-radius: 5px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .project-media-bg {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          display:none;
+        }
+
         .project-media {
           display: flex;
           justify-content: center;
-          border-radius: 5;
+          border-radius: 5px;
           position: relative;
-          border-radius: 5;
           overflow: hidden;
+        }
+
+        @media (min-width: 640px) {
+          .project-media-bg {
+            display: block;
+          }
+          .project-media {
+            max-height: 650px;
+            margin: auto;
+          }
+          .project-media-wrapper {
+            border-radius: 5px;
+            padding: 20px;
+          }
         }
       `}</style>
     </div>

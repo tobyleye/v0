@@ -99,6 +99,7 @@ export function Contact({ open, onClose }) {
           }
           .content {
             max-width: 400px;
+            border-radius: 5px;
             transform: translateY(20px);
             opacity: 0;
           }
