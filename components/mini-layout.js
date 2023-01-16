@@ -6,15 +6,16 @@ export function MiniLayout({ children }) {
     <div className="layout">
       <div className="container">
         <Nav />
-        <PageTransition>{children}</PageTransition>
+        <PageTransition>
+          <main>{children}</main>
+        </PageTransition>
       </div>
 
       <style jsx>{`
         .layout {
           min-height: 100vh;
-          background: rgb(21,21,21);
+          background:var(--black);
           color: #f4f4f4;
-          line-height: 1.5;
         }
 
         .container {
@@ -25,7 +26,6 @@ export function MiniLayout({ children }) {
           padding-right: 24px;
           padding-bottom: 20px;
         }
-
       `}</style>
     </div>
   );

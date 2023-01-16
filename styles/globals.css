@@ -17,8 +17,13 @@ a {
   box-sizing: border-box;
 }
 
+body {
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
 :root {
-  --black: #212121;
+  --black: rgba(21, 21, 21);
 }
 
 ul {
@@ -26,25 +31,24 @@ ul {
   padding: 0;
 }
 
-
 .page-transition-container {
   position: relative;
 }
 
-.page-enter  {
- opacity: 0;
+.page-enter {
+  opacity: 0;
 }
 
-.page-enter-active  {
+.page-enter-active {
   opacity: 1;
   transition: all 200ms;
 }
 
 .page-exit {
- opacity: 1;
+  opacity: 1;
 }
 
-.page-exit-active  {
+.page-exit-active {
   opacity: 0;
   transition: all 200ms;
 }

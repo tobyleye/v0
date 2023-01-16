@@ -2,7 +2,7 @@ import Image from "next/image";
 import { client, groq } from "../lib/client";
 import Link from "next/link";
 import { Contact } from "../components/contact";
-import { useState } from "react";
+import {  useState } from "react";
 
 export async function getStaticProps() {
   const data = await client
@@ -24,26 +24,24 @@ export async function getStaticProps() {
 
 export default function Home({ data }) {
   const [showContact, setShowContact] = useState(false);
+
   return (
     <section className="index">
       <Contact open={showContact} onClose={() => setShowContact(false)} />
       <header className="intro">
         <div className="intro-row">
           <div className="intro-left">
-            <h1 className="intro-text">
-              <div>Hey There,</div>
-              <div>
-                {`My name is Tobi Oyeleye, I'm a software engineer focusing on
-              building performant, modern & delightful web experiences.
-              `}
-              </div>
-            </h1>
+            <div className="intro-texts">
+              <h1>Here There,</h1>
+              <h2>{`My name is Tobi Oyeleye, I'm a software engineer focusing on
+              building performant, modern & delightful web experiences.`}</h2>
+            </div>
             <div className="btns">
               <Link href="/projects">
-                <button className="project-btn">See projects</button>
+                <button className="btn-left">See projects</button>
               </Link>
               <button
-                className="resume-btn"
+                className="btn-right"
                 onClick={() => setShowContact(true)}
               >
                 Contact me
@@ -108,32 +106,28 @@ export default function Home({ data }) {
           border-radius: 5px;
         }
 
-        .btns .resume-btn {
+        .btns .btn-right {
           background: none;
           color: yellow;
           border: 2px solid white;
         }
 
-        .btns .resume-btn:hover {
-        }
-
-        .btns .project-btn {
+        .btns .btn-left {
           background: white;
           color: var(--black);
           text-transform: capitalize;
         }
 
-        .intro-text {
-          font-size: 30px;
+        .intro-texts {
           animation: come_in 0.95s ease;
         }
 
-        .intro-text div:first-child {
+        .intro-texts h1 {
           font-size: 36px;
           margin-bottom: 8px;
         }
 
-        .intro-text div:last-child {
+        .intro-texts h2 {
           font-size: 24px;
           font-weight: 600;
           color: #ccc;
@@ -179,7 +173,7 @@ export default function Home({ data }) {
             width: 66%;
           }
 
-          .intro-text div:first-child {
+          .intro-texts h1 {
             font-size: 48px;
           }
 
@@ -206,7 +200,7 @@ export default function Home({ data }) {
 
         @keyframes come_in {
           0% {
-            transform: scale(1.2);
+            transform: scale(1.12);
             opacity: 0;
           }
 
