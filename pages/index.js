@@ -31,7 +31,7 @@ export default function Home({ data }) {
         <div className="intro-row">
           <div className="intro-left">
             <div className="intro-texts">
-              <h1>Here There,</h1>
+              <h1>Hi There,</h1>
               <h2>{`My name is Tobi Oyeleye, I'm a software engineer focusing on
               building performant, modern & delightful web experiences.`}</h2>
             </div>
