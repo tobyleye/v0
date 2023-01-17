@@ -10,13 +10,14 @@ const workExperiences = [
     period: "March 2022",
     highlights: [
       <p>
-        Single handedly led the frontend development of{" "}
-        <a href="https://soar.fatefoundation.org/">SOAR</a>, a fully
-        customizable, responsive application intended to bring entrepreneurs a
-        step closer to starting, growing and scaling their business
+        Single handedly led & built the frontend of{" "}
+        <a href="https://soar.fatefoundation.org/">SOAR</a>, a platform currently
+        being used by over 8,000 enterpreneurs across africa to start, grow and scale their
+        business.
       </p>,
-      "Created an in-platform robust form builder which enables admins set-up and configure application forms for programs. With this in place we were able to boycott third-party solutions like google forms hence saving cost",
-      "Integrated payment with paystack allowing the  foundation to receive payments for their paid programmes",
+      "Saved cost by building an in-platform form builder used by admins to create application forms.",
+      "Integrated payment system allowing the foundation to receive payments for their paid programmes.",
+      "Collaborated with a team of 2 backend engineers and 2 designers.",
     ],
   },
 
@@ -33,7 +34,7 @@ const workExperiences = [
         used by over 2 million users.
       </p>,
       "Rebuilt & Improved existing notification system keeping users up to date at all times ensuring a smooth user experience.",
-      "built and led product that gave over 500,000 policemen access to housing loans",
+      "Built and led product that gave over 500,000 policemen access to housing loans.",
     ],
   },
 
@@ -55,10 +56,8 @@ const workExperiences = [
         .
       </p>,
       `Increased SEO ranking significantly by 135% after migrating web app from
-        client-side to server side. Technologies used where Vuejs & NuxtJs`,
-      `Built internal apis that interfaced with Salesforce and was used to
-        collect potential clients requests`,
-      `connected forms to salesforce which was used to collect clients request.`,
+        client-side to server side. Technologies used where Vuejs & NuxtJs.`,
+      `Connected forms to salesforce which was used to collect premium clients request.`,
     ],
   },
 
@@ -151,7 +150,7 @@ export default function ResumePage() {
             </li>
             <li>
               <span className="bold">Tools and technologies:</span> Rest API,
-              GraphQL, Mongodb, Postgresql, Docker, Git
+              GraphQL, Mongodb, Postgresql, Docker, Git, AWS(Amplify)
             </li>
           </ul>
         </section>
