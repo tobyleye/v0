@@ -12,11 +12,10 @@ const workExperiences = [
       <p>
         Single handedly led & built the frontend of{" "}
         <a href="https://soar.fatefoundation.org/">SOAR</a>, a platform currently
-        being used by over 8,000 enterpreneurs across africa to start, grow and scale their
+        being used by over 8,000 entrepreneurs to start, grow and scale their
         business.
       </p>,
       "Saved cost by building an in-platform form builder used by admins to create application forms.",
-      "Integrated payment system allowing the foundation to receive payments for their paid programmes.",
       "Collaborated with a team of 2 backend engineers and 2 designers.",
     ],
   },
@@ -29,12 +28,12 @@ const workExperiences = [
 
     highlights: [
       <p>
-        led the development and maintenance of{" "}
+        Led the development and maintenance of{" "}
         <a href="https://myeasycoop.com/">Easycoop</a>. A cooperative solution
         used by over 2 million users.
       </p>,
+      "Built and led the frontend effort on products that gave over 500,000 policemen access to housing loans.",
       "Rebuilt & Improved existing notification system keeping users up to date at all times ensuring a smooth user experience.",
-      "Built and led product that gave over 500,000 policemen access to housing loans.",
     ],
   },
 
@@ -45,7 +44,6 @@ const workExperiences = [
     period: "July 2021 - March 2022",
 
     highlights: [
-      // 'work i did help improved discoverability of services offered by the company.'
       <p>
         Led the frontend development of{" "}
         <a href="https://estateintel.com/app/projects">Projects</a> and several
@@ -57,7 +55,7 @@ const workExperiences = [
       </p>,
       `Increased SEO ranking significantly by 135% after migrating web app from
         client-side to server side. Technologies used where Vuejs & NuxtJs.`,
-      `Connected forms to salesforce which was used to collect premium clients request.`,
+      `Connected forms to salesforce which was helped to manage & prioritize clients demo requests.`,
     ],
   },
 
@@ -78,11 +76,11 @@ const workExperiences = [
     company: "Xerde Limited",
     location: "Lagos, Nigeria (Hybrid)",
     role: "Software engineer",
-    period: "Jan 2020 - Feb 2021",
+    period: "July 2019 - Feb 2021",
     highlights: [
       `I worked in a team of 3 frontend developers and was involved in the front-end development of Tudo, Africa's first and largest social fundraising & smart savings platform.`,
-      `Created a first of its kind, an in-platform image editor which was embedded into Tudo and was created for NGOs to create and share interactive images for campaigns eliminating the need to hire professional talent and saving costs.`,
-      `Designed and developed an internal tool which was used to manage customers & resources and respond to abnormalities in the app`,
+      `Collaborated with team members to develop an image editor which was embedded into Tudo eliminating the need to hire professional talent and saving costs.`,
+      `Designed and developed an internal tool which was used to manage customers & resources.`,
     ],
   },
 ];
@@ -130,6 +128,9 @@ export default function ResumePage() {
             </div>
           </div>
           <div className="links">
+          <div>
+              <a href="https://oluwatobi.vercel.app">oluwatobi.vercel.app</a>
+            </div>
             <div>
               <a href="https://github.com/tobyleye">github.com/tobyleye</a>
             </div>

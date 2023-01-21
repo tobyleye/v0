@@ -3,12 +3,8 @@ export default function AboutPage() {
     <div className="about">
       <p>A simple guy, and a real crowd pleaser.</p>
       <p>
-        I love travelling, exploring new things and places, working out, maths
-        and recently teaching.
-      </p>
-      <p>
-        I listen to a shit ton of music. Last year alone i listened to over 95k
-        minutes of music on youtube music. A feat none of my friends could reach.
+        Besides building amazing products I love exploring new things and
+        places, listening to music, maths, working out, and recently teaching.
       </p>
       <p>
         {`
