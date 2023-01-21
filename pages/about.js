@@ -4,7 +4,7 @@ export default function AboutPage() {
       <p>A simple guy, and a real crowd pleaser.</p>
       <p>
         Besides building amazing products I love exploring new things and
-        places, listening to music, maths, working out, and recently teaching.
+        places, listening to music, maths, working out, and teaching.
       </p>
       <p>
         {`
