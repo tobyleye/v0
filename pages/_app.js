@@ -2,6 +2,7 @@ import React from "react";
 import { MiniLayout as DefaultLayout } from "../components/mini-layout";
 import "../styles/globals.css";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react";
 
 const head = {
   title: "Tobi Oyeleye • Software engineer",
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:url" content={head.url} />
       </Head>
       <Component {...pageProps} />
+      <Analytics />
     </Layout>
   );
 }
