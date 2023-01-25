@@ -19,6 +19,9 @@ export async function getStaticProps() {
 export default function Projects({ projects }) {
   return (
     <div>
+      <h1 className="heading">
+        <span>Cool</span> stuff {`I've`} built
+      </h1>
       <ul className="project-list">
         {projects.map((project) => (
           <li key={project._id}>
@@ -27,6 +30,22 @@ export default function Projects({ projects }) {
         ))}
       </ul>
       <style jsx>{`
+        .heading {
+          font-size: 30px;
+          margin-bottom: 40px;
+        }
+
+        .heading span {
+          color: yellow;
+          background: linear-gradient(
+            to right,
+            #D7E9B9,
+            #FAAB78);
+          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
+          );
+        }
+
         .project-list {
           display: grid;
           column-gap: 40px;
@@ -37,6 +56,9 @@ export default function Projects({ projects }) {
         @media (min-width: 650px) {
           .project-list {
             grid-template-columns: repeat(2, 1fr);
+          }
+          .heading {
+            font-size: 40px;
           }
         }
       `}</style>
