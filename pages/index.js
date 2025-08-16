@@ -91,41 +91,19 @@ export default function Home({ data }) {
         </a>
       </section>
 
-      <style jsx>{`
-        figure {
-          width: 150px;
-          height: 150px;
-          position: relative;
-          border-radius: 50%;
-          overflow: hidden;
-          margin: 0 auto;
-          margin-bottom: 20px;
-        }
-        .welcome-section {
-          /* border: 1px solid red; */
-          text-align: center;
-          padding-top: 15vh;
-        }
-
-        .who {
-          font-size: 2.5rem;
-          margin-bottom: 0.4rem;
-        }
-
-        .what {
-          font-size: 1.4rem;
-          margin-bottom: 2rem;
-          color: rgba(255, 255, 255, 0.8);
-        }
-
+      <style global>
+        {`
         .languages {
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-shrink: 0;
         }
 
         .languages > span {
-          margin-right: 10px;
+          margin-right: 15px;
+          white-space: nowrap;
+          font-weight: 500;
         }
 
         .languages ul {
@@ -144,6 +122,41 @@ export default function Home({ data }) {
           display: inline-flex;
           align-items: center;
           gap: 4px;
+        }
+          `}
+      </style>
+
+      <style jsx>{`
+        figure {
+          width: 150px;
+          height: 150px;
+          position: relative;
+          border-radius: 50%;
+          overflow: hidden;
+          margin: 0 auto;
+          margin-bottom: 20px;
+        }
+        .welcome-section {
+          /* border: 1px solid red; */
+          text-align: center;
+          padding-top: 15vh;
+        }
+
+        @media (max-width: 600px) {
+          .welcome-section {
+            padding-top: 10vh;
+          }
+        }
+
+        .who {
+          font-size: 2.5rem;
+          margin-bottom: 0.4rem;
+        }
+
+        .what {
+          font-size: 1.4rem;
+          margin-bottom: 2rem;
+          color: rgba(255, 255, 255, 0.8);
         }
 
         .contact-links {
