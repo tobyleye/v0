@@ -14,12 +14,12 @@ export function MiniLayout({ children }) {
       <style jsx>{`
         .layout {
           min-height: 100vh;
-          background:var(--black);
+          background: var(--black);
           color: #f4f4f4;
         }
 
         .container {
-          max-width: 740px;
+          max-width: 64rem;
           margin: auto;
           padding-top: 20px;
           padding-left: 24px;

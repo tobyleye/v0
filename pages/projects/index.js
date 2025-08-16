@@ -18,7 +18,7 @@ export async function getStaticProps() {
 
 export default function Projects({ projects }) {
   return (
-    <div>
+    <div className="projects-container">
       <h1 className="heading">
         <span>Cool</span> stuff {`I've`} built
       </h1>
@@ -30,6 +30,12 @@ export default function Projects({ projects }) {
         ))}
       </ul>
       <style jsx>{`
+
+      .projects-container {
+        max-width: 52rem;
+        margin: auto;
+      }
+
         .heading {
           font-size: 30px;
           margin-bottom: 40px;
