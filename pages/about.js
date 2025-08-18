@@ -8,11 +8,10 @@ export default function AboutPage() {
       </div>
 
       <p>
-        Hey, <br />
-        I’m Oyeleye Oluwatobi. I’m a software engineer. Or, more precisely, a
-        full stack engineer. That means I’m just as comfortable building
-        fault-tolerant backend systems as I am turning Figma designs into
-        responsive, accessible frontends.
+        Hey 👋, <br />
+        I’m a software engineer, or more precisely a full stack engineer. That
+        means I’m just as comfortable building fault-tolerant backend systems as
+        I am turning Figma designs into responsive, accessible frontends.
       </p>
       <p>
         These days, I mostly work with Go, TypeScript, Nodejs, and React. I

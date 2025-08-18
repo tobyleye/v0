@@ -142,12 +142,6 @@ export default function Home({ data }) {
           padding-top: 15vh;
         }
 
-        @media (max-width: 600px) {
-          .welcome-section {
-            padding-top: 10vh;
-          }
-        }
-
         .who {
           font-size: 2.5rem;
           margin-bottom: 0.4rem;
@@ -180,6 +174,30 @@ export default function Home({ data }) {
         .contact-links a span {
           display: inline-grid;
           place-items: center;
+        }
+
+        @media (max-width: 600px) {
+          .welcome-section {
+            padding-top: 10vh;
+          }
+
+          .who {
+            font-size: 1.85rem;
+          }
+
+          .what {
+            font-size: 1.2rem;
+          }
+
+          .languages {
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+          }
+
+          .languages ul {
+            justify-content: center;
+          }
         }
       `}</style>
     </section>
