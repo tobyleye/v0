@@ -5,6 +5,7 @@ import {
   PythonLogo,
   TypescriptLogo,
   ReactLogo,
+  NodejsLogo,
 } from "../components/logos";
 import { HiOutlineMail } from "react-icons/hi";
 import { TfiGithub } from "react-icons/tfi";
@@ -47,24 +48,29 @@ export default function Home({ data }) {
         </figure>
         <h1 className="who">Oyeleye Oluwatobi</h1>
         <h4 className="what">Software Engineer</h4>
-        <div className="languages">
+        <div className="tech-stack">
           <span>Fluent in</span>
           <ul>
-            <li className="language">
+            <li>
               <GolangLogo />
               Go,
             </li>
-            <li className="language">
+            <li>
               <TypescriptLogo />
               Typescript,
             </li>
 
-            <li className="language">
+            <li>
+              <NodejsLogo />
+              Nodejs,
+            </li>
+
+            <li>
               <ReactLogo />
               React,
             </li>
 
-            <li className="language">
+            <li>
               & <PythonLogo /> Python
             </li>
           </ul>
@@ -93,35 +99,9 @@ export default function Home({ data }) {
 
       <style global>
         {`
-        .languages {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-
-        .languages > span {
-          margin-right: 15px;
-          white-space: nowrap;
-          font-weight: 500;
-        }
-
-        .languages ul {
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 6px;
-        }
-
-        .languages svg {
+        .tech-stack svg {
           width: 24px;
           height: 24px;
-        }
-
-        .language {
-          display: inline-flex;
-          align-items: center;
-          gap: 4px;
         }
           `}
       </style>
@@ -176,6 +156,32 @@ export default function Home({ data }) {
           place-items: center;
         }
 
+        .tech-stack {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .tech-stack > span {
+          margin-right: 15px;
+          white-space: nowrap;
+          font-weight: 500;
+        }
+
+        .tech-stack ul {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+
+        .tech-stack li {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+        }
+
         @media (max-width: 600px) {
           .welcome-section {
             padding-top: 10vh;
@@ -189,13 +195,13 @@ export default function Home({ data }) {
             font-size: 1.2rem;
           }
 
-          .languages {
+          .tech-stack {
             flex-direction: column;
             align-items: center;
             gap: 8px;
           }
 
-          .languages ul {
+          .tech-stack ul {
             justify-content: center;
           }
         }

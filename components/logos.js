@@ -39,3 +39,7 @@ export const PythonLogo = () => {
 export const ReactLogo = () => {
   return <></>;
 };
+
+export const NodejsLogo = () => {
+  return <></>;
+};
