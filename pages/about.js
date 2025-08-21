@@ -1,21 +1,21 @@
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function AboutPage() {
   return (
     <div id="about" className="about-container">
-      <div className="img-container">
+      {/* <div className="img-container">
         <img src="/hey.gif" alt="Hi" />
-      </div>
+      </div> */}
 
       <p>
         Hey 👋, <br />
         I’m a software engineer, or more precisely a full stack engineer. That
-        means I’m just as comfortable building fault-tolerant backend systems as
-        I am turning Figma designs into responsive, accessible frontends.
+        means I’m just as comfortable building robust backend systems as I am
+        turning designs into responsive, accessible frontends.
       </p>
       <p>
         These days, I mostly work with Go, TypeScript, Nodejs, and React. I
-        write Python too (still a fanboy at heart), just not as often.
+        write Python too (still a fanboy at heart), just not as much.
       </p>
 
       <p>
@@ -51,7 +51,8 @@ export default function AboutPage() {
 
         #about p {
           margin-bottom: 1.4rem;
-          font-size: 1.25rem;
+          font-size: 1.2rem;
+          line-height: 1.5;
         }
 
         #about a {
@@ -59,26 +60,11 @@ export default function AboutPage() {
           text-decoration: underline;
         }
 
-        .fav-quote {
-          background: rgba(255, 255, 255, 0.1);
-          border-radius: 5px;
-          padding: 20px;
-          margin-bottom: 20px;
+        @media (max-width: 600px) {
+          #about p {
+            font-size: 1rem;
+          }
         }
-
-        .quote {
-          position: relative;
-          /* padding-left: 27px; */
-          font-style: italic;
-        }
-        /* .quote::before {
-          content: '"';
-          display: block;
-          font-size: 55px;
-          position: absolute;
-          left: 0;
-          top: -25px;
-        } */
       `}</style>
     </div>
   );
