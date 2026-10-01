@@ -1,5 +1,6 @@
+import { useState } from "react";
 import Image from "next/image";
-import { client, groq } from "../lib/client";
+import profilePicture from "../assets/profile.jpg";
 import {
   GolangLogo,
   PythonLogo,
@@ -10,70 +11,61 @@ import {
 import { HiOutlineMail } from "react-icons/hi";
 import { TfiGithub } from "react-icons/tfi";
 
-export async function getStaticProps() {
-  const data = await client
-    .fetch(
-      groq`*[_type == "homePage"]{
-    "avatar": {
-        "url": avatar.asset->url,
-        "placeholder": avatar.asset->metadata.lqip,
-    }
-  }`
-    )
-    .then((results) => results[0]);
-  return {
-    props: {
-      data,
-    },
-  };
-}
+export default function Home() {
+  const [imageLoaded, setImageLoaded] = useState(false);
 
-export default function Home({ data }) {
   return (
     <section className="welcome-section">
-      <div>
+      <div className="intro">
         <figure>
-          {data && (
-            <Image
-              fill
-              src={data.avatar.url}
-              alt="avatar"
-              priority={true}
-              placeholder="blur"
-              blurDataURL={data.avatar.placeholder}
-              style={{ objectFit: "cover" }}
-            />
-          )}
-          <figcaption>my avatar</figcaption>
+          <Image
+            fill
+            src={profilePicture}
+            alt="Oyeleye Oluwatobi"
+            priority={true}
+            sizes="(max-width: 768px) 200px, 280px"
+            onLoadingComplete={() => {
+              setImageLoaded(true);
+            }}
+            style={{
+              objectFit: "cover",
+              objectPosition: "center top",
+              opacity: imageLoaded ? 1 : 0,
+              transition: "opacity 0.4s ease",
+            }}
+          />
+          {!imageLoaded && <span className="image-loader" aria-hidden="true" />}
         </figure>
-        <h1 className="who">Oyeleye Oluwatobi</h1>
-        <h4 className="what">Software Engineer</h4>
-        <div className="tech-stack">
-          <span>Fluent in</span>
-          <ul>
-            <li>
-              <GolangLogo />
-              Go,
-            </li>
-            <li>
-              <TypescriptLogo />
-              Typescript,
-            </li>
+        <div className="intro-text">
+          <h1 className="who">Oyeleye Oluwatobi</h1>
+          <h4 className="what">Software Engineer</h4>
+          <div className="tech-stack">
+            <span>Fluent in</span>
+            <ul>
+              <li>
+                <GolangLogo />
+                Go,
+              </li>
+              <li>
+                <TypescriptLogo />
+                Typescript,
+              </li>
 
-            <li>
-              <NodejsLogo />
-              Nodejs,
-            </li>
+              <li>
+                <NodejsLogo />
+                Nodejs,
+              </li>
 
-            <li>
-              <ReactLogo />
-              React,
-            </li>
+              <li>
+                <ReactLogo />
+                React,
+              </li>
 
-            <li>
-              & <PythonLogo /> Python
-            </li>
-          </ul>
+              <li>
+                & <PythonLogo /> Python
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -97,29 +89,63 @@ export default function Home({ data }) {
         </a>
       </section>
 
-      <style global>
+      <style jsx global>
         {`
-        .tech-stack svg {
-          width: 24px;
-          height: 24px;
-        }
-          `}
+          .tech-stack svg {
+            width: 24px;
+            height: 24px;
+          }
+        `}
       </style>
 
       <style jsx>{`
-        figure {
-          width: 150px;
-          height: 150px;
-          position: relative;
-          border-radius: 50%;
-          overflow: hidden;
-          margin: 0 auto;
-          margin-bottom: 20px;
-        }
         .welcome-section {
-          /* border: 1px solid red; */
-          text-align: center;
-          padding-top: 15vh;
+          padding-top: 12vh;
+        }
+
+        .intro {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 56px;
+        }
+
+        figure {
+          width: 280px;
+          aspect-ratio: 4 / 5;
+          position: relative;
+          border-radius: 16px;
+          overflow: hidden;
+          flex-shrink: 0;
+          background: rgba(255, 255, 255, 0.05);
+        }
+
+        .image-loader {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            100deg,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, 0.08) 50%,
+            rgba(255, 255, 255, 0) 70%
+          );
+          background-size: 200% 100%;
+          animation: shimmer 1.4s linear infinite;
+        }
+
+        @keyframes shimmer {
+          from {
+            background-position: 200% 0;
+          }
+          to {
+            background-position: -200% 0;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .image-loader {
+            animation: none;
+          }
         }
 
         .who {
@@ -159,7 +185,6 @@ export default function Home({ data }) {
         .tech-stack {
           display: flex;
           align-items: center;
-          justify-content: center;
           flex-shrink: 0;
         }
 
@@ -182,11 +207,28 @@ export default function Home({ data }) {
           gap: 4px;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
           .welcome-section {
-            padding-top: 10vh;
+            padding-top: 6vh;
+            padding-bottom: 80px;
           }
 
+          .intro {
+            flex-direction: column;
+            gap: 24px;
+            text-align: center;
+          }
+
+          figure {
+            width: 200px;
+          }
+
+          .tech-stack {
+            justify-content: center;
+          }
+        }
+
+        @media (max-width: 600px) {
           .who {
             font-size: 1.85rem;
           }
