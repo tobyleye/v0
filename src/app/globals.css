@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-paper: #f7f6f2;
+  --color-surface: #ffffff;
+  --color-placeholder: #ecebe5;
+  --color-ink: #1a1c1a;
+  --color-ink-soft: #4b4f4b;
+  --color-muted: #5e625e;
+  --color-line: #e4e4de;
+  --color-line-strong: #c9cbc5;
+  --color-rule: #8a8e8a;
+  --color-accent: #1f5c45;
+  --color-accent-tint: #e3eee8;
+
+  --font-sans: var(--font-instrument-sans), "Helvetica Neue", sans-serif;
+  --font-display: var(--font-newsreader), Georgia, serif;
+}
+
+@layer base {
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Headings clear the sticky tab bar on mobile and line up with the sidebar on desktop. */
+  section[id] {
+    scroll-margin-top: 76px;
+  }
+
+  @media (min-width: 1024px) {
+    section[id] {
+      scroll-margin-top: clamp(48px, 13vh, 120px);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+/* Section fade-up. The attribute is only set by JS on sections below the fold,
+   so everything stays visible without JS or with reduced motion. */
+[data-reveal] {
+  transition:
+    opacity 400ms ease-out,
+    transform 400ms ease-out;
+}
+
+[data-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(12px);
+}
